@@ -1,6 +1,6 @@
-var azure = require('azure');
+//var azure = require('azure');
 
-var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=JNlMSVdM1L0XR9mhINW8FSPdakSCdz9LIYU8+ds+FJ8=");
+//var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=JNlMSVdM1L0XR9mhINW8FSPdakSCdz9LIYU8+ds+FJ8=");
 
 
 Parse.Cloud.define("sendAnnouncement", function(request, response) {
@@ -43,12 +43,12 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
                         response.success("driverCancelledNotif sendAnnouncement sent");
                 },
                 error: function(error) {
@@ -73,12 +73,12 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
                         // Push was successful
                         response.success("driverCancelledNotif sendAnnouncement sent");
                 },
@@ -104,12 +104,12 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
                         // Push was successful
                         response.success("passengerCancelledNotif sendAnnouncement sent");
                 },
@@ -148,12 +148,12 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+ // if(!error){
     // notification sent
-  }
-});
+ // }
+//});
                         // Push was successful
                         response.success("sendAnnouncement sent");
                 },
@@ -194,12 +194,12 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
                         response.success("sendAnnouncement sent");
                 },
                 error: function(error) {
@@ -235,12 +235,12 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
                         response.success("sendAnnouncement sent");
                 },
                 error: function(error) {
