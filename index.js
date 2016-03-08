@@ -1,10 +1,12 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
-//var azure = require('azure');
+
+
+var azure = require('azure');
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 
-//var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=JNlMSVdM1L0XR9mhINW8FSPdakSCdz9LIYU8+ds+FJ8=");
+var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=JNlMSVdM1L0XR9mhINW8FSPdakSCdz9LIYU8+ds+FJ8=");
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
 
