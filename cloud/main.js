@@ -6,7 +6,7 @@
 
 var azure = require('azure');
 
-var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=JNlMSVdM1L0XR9mhINW8FSPdakSCdz9LIYU8+ds+FJ8=");
+var notificationHubService = azure.createNotificationHubService("OneTaxiCabs", "Endpoint=sb://usersidecars.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=xMqqY00EYTayAWMhj1MAZWHS9OOZI5PPk3C/LxnOGl8=");
 
 
 Parse.Cloud.define("sendAnnouncement", function(request, response) {
