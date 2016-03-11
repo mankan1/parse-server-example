@@ -56,7 +56,7 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
 //  }
 //});
   
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + passengerNumber + "&msg=" + "driverCancelledNotif";
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + passengerNumber + '&msg=' + 'driverCancelledNotif';
     notificationHubService.mpns.sendToast(
         passengerNumber,
         {
@@ -109,7 +109,7 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
     // notification sent
 //  }
 //});
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "declineTodriverNotif";
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'declineTodriverNotif';
     notificationHubService.mpns.sendToast(
         phone,
         {
@@ -163,7 +163,7 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
     // notification sent
  // }
 //});
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "passengerCancelledTodriverNotif";
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'passengerCancelledTodriverNotif';
     notificationHubService.mpns.sendToast(
         phone,
         {
@@ -237,7 +237,7 @@ var values = faretarget.split(',');
 var i;
 for (i = 0; i < values.length; i++) {
   
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptDeclineNotif" + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptDeclineNotif' + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
 						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg + '&farerecepientphonenumbers=' + farerecepientphonenumbers 
 						+ '&farerecepientsenderids=' + farerecepientsenderids;
 
@@ -310,7 +310,7 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
     // notification sent
   //}
 //});
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptanceToDriverNotif" + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptanceToDriverNotif' + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
 						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg  
 						+ '&passengernumber=' + passengernumber + '&distance=' + distance;
     notificationHubService.mpns.sendToast(
@@ -378,7 +378,7 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
     // notification sent
   //}
 //});
-    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptanceToPassNotif";
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptanceToPassNotif';
     notificationHubService.mpns.sendToast(
         passengernumber,
         {
