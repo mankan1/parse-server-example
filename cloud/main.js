@@ -62,8 +62,8 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
         //passengerNumber,
         {
             text1: 'Sorry Driver Cancelled your fare!',
-            text2: 'Request a new fare',
-	    param: parm
+            text2: 'Request a new fare'
+	    //param: parm
         },
         function (error)
         {
@@ -116,8 +116,8 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
         //phone,
         {
             text1: 'Sorry Passenger declined your fare acceptance!',
-            text2: 'Keep looking for new fares',
-	    param: parm
+            text2: 'Keep looking for new fares'
+	    //param: parm
         },
         function (error)
         {
@@ -171,8 +171,8 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
         //phone,
         {
             text1: 'Sorry passenger Cancelled your fare!',
-            text2: 'Keep looking for new fares',
-	    param: parm
+            text2: 'Keep looking for new fares'
+	    //param: parm
         },
         function (error)
         {
@@ -249,8 +249,8 @@ var i;
 	null,
         {
             text1: 'You have a New Fare request!',
-            text2: 'Accept or Decline',
-	    param: parm
+            text2: 'Accept or Decline'
+	    //param: parm
         },
         function (error)
         {
@@ -322,8 +322,8 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
         //phone,
         {
             text1: 'Congrats! the passenger accepted to ride with you!',
-            text2: 'Please check the directions and map',
-	    param: parm
+            text2: 'Please check the directions and map'
+	    //param: parm
         },
         function (error)
         {
@@ -389,8 +389,8 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
         //passengernumber,
         {
             text1: 'Congratulations a driver accepted your fare!',
-            text2: 'Please Check the direction on the map',
-	    param: parm
+            text2: 'Please Check the direction on the map'
+	    //param: parm
         },
         function (error)
         {
