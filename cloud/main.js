@@ -49,12 +49,36 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
+  
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + passengerNumber + "&msg=" + "driverCancelledNotif";
+    notificationHubService.mpns.sendToast(
+        passengerNumber,
+        {
+            text1: 'Sorry Driver Cancelled your fare!',
+            text2: 'Request a new fare',
+	    param: parm
+        },
+        function (error)
+        {
+            if (!error)
+            			{
+                		//message send successfully
+                			console.log("mpns.sendToast push success: "+error);
+                			RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            			}
+            			else
+            			{
+                			// msg failed to send
+                			console.log("errro error.shouldDeleteChannel: "+error);
+                			RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+            			}
+    			});
                         response.success("driverCancelledNotif sendAnnouncement sent");
                 },
                 error: function(error) {
@@ -79,12 +103,35 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "declineTodriverNotif";
+    notificationHubService.mpns.sendToast(
+        phone,
+        {
+            text1: 'Sorry Passenger declined your fare acceptance!',
+            text2: 'Keep looking for new fares',
+	    param: parm
+        },
+        function (error)
+        {
+            if (!error)
+            {
+                //message send successfully
+                console.log("mpns.sendToast push success: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            }
+            else
+            {
+                // msg failed to send
+                console.log("errro error.shouldDeleteChannel: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+            }
+    });
                         // Push was successful
                         response.success("driverCancelledNotif sendAnnouncement sent");
                 },
@@ -110,14 +157,38 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+ // if(!error){
     // notification sent
-  }
-});
+ // }
+//});
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "passengerCancelledTodriverNotif";
+    notificationHubService.mpns.sendToast(
+        phone,
+        {
+            text1: 'Sorry passenger Cancelled your fare!',
+            text2: 'Keep looking for new fares',
+	    param: parm
+        },
+        function (error)
+        {
+            	if (!error)
+            	{
+                	//message send successfully
+                	console.log("mpns.sendToast push success: "+error);
+                	RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            	}
+            	else
+            	{
+                	// msg failed to send
+                	console.log("errro error.shouldDeleteChannel: "+error);
+                	RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
                         // Push was successful
                         response.success("passengerCancelledNotif sendAnnouncement sent");
+                }
+        });
+                        response.success("driverCancelledNotif sendAnnouncement sent");
                 },
                 error: function(error) {
                         // Handle error
@@ -137,6 +208,7 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
         var passlongitude = request.params.passlongitude;
         var farerecepientphonenumbers = request.params.farerecepientphonenumbers;
         var farerecepientsenderids = request.params.farerecepientsenderids;
+        var faretarget  = request.perams.faretarget;
 
         Parse.Push.send({
                 channels: [ request.params.channel ],
@@ -154,12 +226,44 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+//  if(!error){
     // notification sent
-  }
-});
+//  }
+//});
+
+var values = faretarget.split(',');
+var i;
+for (i = 0; i < values.length; i++) {
+  
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptDeclineNotif" + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
+						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg + '&farerecepientphonenumbers=' + farerecepientphonenumbers 
+						+ '&farerecepientsenderids=' + farerecepientsenderids;
+
+    notificationHubService.mpns.sendToast(
+        values[i],
+        {
+            text1: 'You have a New Fare request!',
+            text2: 'Accept or Decline',
+	    param: parm
+        },
+        function (error)
+        {
+            if (!error)
+            {
+                //message send successfully
+                console.log("mpns.sendToast push success: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            }
+            else
+            {
+                // msg failed to send
+                console.log("errro error.shouldDeleteChannel: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+            }
+    });
+}
                         // Push was successful
                         response.success("sendAnnouncement sent");
                 },
@@ -200,12 +304,39 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  //if(!error){
     // notification sent
-  }
-});
+  //}
+//});
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptanceToDriverNotif" + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
+						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg  
+						+ '&passengernumber=' + passengernumber + '&distance=' + distance;
+    notificationHubService.mpns.sendToast(
+        phone,
+        {
+            text1: 'Congrats! the passenger accepted to ride with you!',
+            text2: 'Please check the directions and map',
+	    param: parm
+        },
+        function (error)
+        {
+            if (!error)
+            {
+                //message send successfully
+                console.log("mpns.sendToast push success: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            }
+            else
+            {
+                // msg failed to send
+                console.log("errro error.shouldDeleteChannel: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                        // Push was successful
+                        response.success("passengerCancelledNotif sendAnnouncement sent");
+                }
+        });
                         response.success("sendAnnouncement sent");
                 },
                 error: function(error) {
@@ -241,12 +372,37 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
-notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-  if(!error){
+//var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
+//notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  //if(!error){
     // notification sent
-  }
-});
+  //}
+//});
+    var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + "&msg=" + "acceptanceToPassNotif";
+    notificationHubService.mpns.sendToast(
+        passengernumber,
+        {
+            text1: 'Congratulations a driver accepted your fare!',
+            text2: 'Please Check the direction on the map',
+	    param: parm
+        },
+        function (error)
+        {
+            if (!error)
+            {
+                //message send successfully
+                console.log("mpns.sendToast push success: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+            }
+            else
+            {
+                // msg failed to send
+                console.log("errro error.shouldDeleteChannel: "+error);
+                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                        // Push was successful
+                        response.success("passengerCancelledNotif sendAnnouncement sent");
+                }
+        });
                         response.success("sendAnnouncement sent");
                 },
                 error: function(error) {
