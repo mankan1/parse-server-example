@@ -208,7 +208,7 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
         var passlongitude = request.params.passlongitude;
         var farerecepientphonenumbers = request.params.farerecepientphonenumbers;
         var farerecepientsenderids = request.params.farerecepientsenderids;
-        var faretarget  = request.perams.faretarget;
+        var faretarget  = request.params.faretarget;
 
         Parse.Push.send({
                 channels: [ request.params.channel ],
