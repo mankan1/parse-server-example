@@ -58,7 +58,8 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
   
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + passengerNumber + '&msg=' + 'driverCancelledNotif';
     notificationHubService.mpns.sendToast(
-        passengerNumber,
+	null,
+        //passengerNumber,
         {
             text1: 'Sorry Driver Cancelled your fare!',
             text2: 'Request a new fare',
@@ -111,7 +112,8 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
 //});
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'declineTodriverNotif';
     notificationHubService.mpns.sendToast(
-        phone,
+	null,
+        //phone,
         {
             text1: 'Sorry Passenger declined your fare acceptance!',
             text2: 'Keep looking for new fares',
@@ -165,7 +167,8 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
 //});
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'passengerCancelledTodriverNotif';
     notificationHubService.mpns.sendToast(
-        phone,
+	null,
+        //phone,
         {
             text1: 'Sorry passenger Cancelled your fare!',
             text2: 'Keep looking for new fares',
@@ -235,14 +238,15 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
 
 var values = faretarget.split(',');
 var i;
-for (i = 0; i < values.length; i++) {
+//for (i = 0; i < values.length; i++) {
   
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptDeclineNotif' + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
 						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg + '&farerecepientphonenumbers=' + farerecepientphonenumbers 
 						+ '&farerecepientsenderids=' + farerecepientsenderids;
 
     notificationHubService.mpns.sendToast(
-        values[i],
+        //values[i],
+	null,
         {
             text1: 'You have a New Fare request!',
             text2: 'Accept or Decline',
@@ -263,7 +267,7 @@ for (i = 0; i < values.length; i++) {
                 RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
             }
     });
-}
+//}
                         // Push was successful
                         response.success("sendAnnouncement sent");
                 },
@@ -314,7 +318,8 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
 						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg  
 						+ '&passengernumber=' + passengernumber + '&distance=' + distance;
     notificationHubService.mpns.sendToast(
-        phone,
+	null,
+        //phone,
         {
             text1: 'Congrats! the passenger accepted to ride with you!',
             text2: 'Please check the directions and map',
@@ -380,7 +385,8 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
 //});
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptanceToPassNotif';
     notificationHubService.mpns.sendToast(
-        passengernumber,
+	null,
+        //passengernumber,
         {
             text1: 'Congratulations a driver accepted your fare!',
             text2: 'Please Check the direction on the map',
