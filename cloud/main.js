@@ -49,8 +49,8 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11);
-if (rand == 3 || rand == 6 || rand == 8) {
+//var rand=Math.floor(Math.random()*11);
+//if (rand == 3 || rand == 6 || rand == 8) {
 
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
@@ -59,7 +59,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   }
 });
 
-}  
+//}  
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + passengerNumber + '&msg=' + 'driverCancelledNotif';
     notificationHubService.mpns.sendToast(
 	null,
@@ -108,9 +108,9 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11);
+//var rand=Math.floor(Math.random()*11);
 
-if (rand == 3 || rand == 6 || rand == 8) {
+//if (rand == 3 || rand == 6 || rand == 8) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   if(!error){
@@ -118,7 +118,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   }
 });
 
-}
+//}
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'declineTodriverNotif';
     notificationHubService.mpns.sendToast(
 	null,
@@ -168,16 +168,16 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11);
+//var rand=Math.floor(Math.random()*11);
 
-if (rand == 3 || rand == 2 || rand == 7) {
+//if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   if(!error){
     // notification sent
   }
 });
-}
+//}
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'passengerCancelledTodriverNotif';
     notificationHubService.mpns.sendToast(
 	null,
@@ -242,9 +242,9 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11);
+//var rand=Math.floor(Math.random()*11);
 
-if (rand == 3 || rand == 2 || rand == 7) {
+//if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   if(!error){
@@ -252,7 +252,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   }
 });
 
-}
+//}
 
 var values = faretarget.split(',');
 var i;
@@ -326,16 +326,16 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11);
+//var rand=Math.floor(Math.random()*11);
 
-if (rand == 3 || rand == 2 || rand == 7) {
+//if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   if(!error){
     // notification sent
   }
 });
-}
+//}
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptanceToDriverNotif' + '&username=' + username + '&latitude=' + latitude + '&longitude=' + longitude + '&passlatitude=' + 
 						passlatitude + '&passlongitude=' + passlongitude + '&msg=' + msg  
 						+ '&passengernumber=' + passengernumber + '&distance=' + distance;
@@ -399,16 +399,16 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11);
+//var rand=Math.floor(Math.random()*11);
 
-if (rand == 3 || rand == 2 || rand == 7) {
+//if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
 notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
   if(!error){
     // notification sent
   }
 });
-}
+//}
     var parm = '/PubnubTimeoutSettings.xaml?phone=' + phone + '&msg=' + 'acceptanceToPassNotif';
     notificationHubService.mpns.sendToast(
 	null,
