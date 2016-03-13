@@ -49,7 +49,7 @@ Parse.Cloud.define("driverCancelledNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 if (rand == 3 || rand == 6 || rand == 8) {
 
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Driver Cancelled the fare!</text></binding></visual></toast>';
@@ -108,7 +108,7 @@ Parse.Cloud.define("declineTodriverNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 
 if (rand == 3 || rand == 6 || rand == 8) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Declined your fare acceptance!</text></binding></visual></toast>';
@@ -168,7 +168,7 @@ Parse.Cloud.define("passengerCancelledTodriverNotif", function(request, response
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 
 if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Sorry Passenger Cancelled the fare!</text></binding></visual></toast>';
@@ -242,7 +242,7 @@ Parse.Cloud.define("acceptDeclineNotif", function(request, response) {
                 }
         }, {
                 success: function() {
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 
 if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">You have a New fare!</text></binding></visual></toast>';
@@ -326,7 +326,7 @@ Parse.Cloud.define("acceptanceToDriverNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 
 if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations the passenger accepted to ride with you!</text></binding></visual></toast>';
@@ -399,7 +399,7 @@ Parse.Cloud.define("acceptanceToPassNotif", function(request, response) {
         }, {
                 success: function() {
                         // Push was successful
-var rand=Math.floor(Math.random()*11)
+var rand=Math.floor(Math.random()*11);
 
 if (rand == 3 || rand == 2 || rand == 7) {
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Congratulations a driver accepted your request!</text></binding></visual></toast>';
