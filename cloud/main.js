@@ -75,13 +75,13 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
             			{
                 		//message send successfully
                 			console.log("mpns.sendToast push success: "+error);
-                			RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                			response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             			}
             			else
             			{
                 			// msg failed to send
                 			console.log("errro error.shouldDeleteChannel: "+error);
-                			RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                			response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
             			}
     			});
                         response.success("driverCancelledNotif sendAnnouncement sent");
@@ -134,13 +134,13 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
             {
                 //message send successfully
                 console.log("mpns.sendToast push success: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             }
             else
             {
                 // msg failed to send
                 console.log("errro error.shouldDeleteChannel: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
             }
     });
                         // Push was successful
@@ -193,15 +193,15 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
             	{
                 	//message send successfully
                 	console.log("mpns.sendToast push success: "+error);
-                	RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                	response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             	}
             	else
             	{
                 	// msg failed to send
                 	console.log("errro error.shouldDeleteChannel: "+error);
-                	RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                	response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
                         // Push was successful
-                        response.success("passengerCancelledNotif sendAnnouncement sent");
+                        //response.success("passengerCancelledNotif sendAnnouncement sent");
                 }
         });
                         response.success("driverCancelledNotif sendAnnouncement sent");
@@ -276,13 +276,13 @@ var i;
             {
                 //message send successfully
                 console.log("mpns.sendToast push success: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             }
             else
             {
                 // msg failed to send
                 console.log("errro error.shouldDeleteChannel: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
             }
     });
 //}
@@ -353,13 +353,13 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
             {
                 //message send successfully
                 console.log("mpns.sendToast push success: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             }
             else
             {
                 // msg failed to send
                 console.log("errro error.shouldDeleteChannel: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
                         // Push was successful
                         response.success("passengerCancelledNotif sendAnnouncement sent");
                 }
@@ -424,13 +424,13 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
             {
                 //message send successfully
                 console.log("mpns.sendToast push success: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
+                response.send(statusCodes.OK, { ResponseMessage : 'mpns.sendToast message success' });
             }
             else
             {
                 // msg failed to send
                 console.log("errro error.shouldDeleteChannel: "+error);
-                RESPONSE.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
+                response.send(statusCodes.OK, { ResponseMessage :'mpns.sendToast message error '+error });
                         // Push was successful
                         response.success("passengerCancelledNotif sendAnnouncement sent");
                 }
